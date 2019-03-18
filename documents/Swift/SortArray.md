@@ -26,4 +26,4 @@ arr.sorted { (int1, int2) -> Bool in
 }
 ```
 
-![screen shot](./documents/Swift/images/sortArrayImage.png)
+![screen shot](/documents/Swift/images/sortArrayImage.png)
