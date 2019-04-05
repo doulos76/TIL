@@ -31,6 +31,7 @@ class NameCell: BasicCell {
     super.init(style: style, reuseIdentifier: reuseIdentifier)    
     setupUI()
     userNameTouched()
+    self.userNameLabel.addInteraction(<#T##interaction: UIInteraction##UIInteraction#>)
   }
   
   fileprivate func setupUI() {

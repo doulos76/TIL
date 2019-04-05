@@ -8,7 +8,15 @@
 
 import UIKit
 
+protocol YoutuberTableViewCellDelegate: class {
+  func youtuberTableViewCell(_ youtuberTableViewCell: YoutuberTableViewCell, subscribeButtonTappedFor youtuber: String)
+}
+
 class YoutuberTableViewCell: UITableViewCell {
+  
+  var youtuber: String?
+  
+  weak var delegate: YoutuberTableViewCellDelegate?
   
   let youtuberLabel: UILabel = {
     let label = UILabel()
@@ -20,13 +28,21 @@ class YoutuberTableViewCell: UITableViewCell {
     let button = UIButton(type: .system)
     button.setTitle("Subscribe", for: .normal)
     button.translatesAutoresizingMaskIntoConstraints = false
+//    button.addTarget(self, action: #selector(handleTapped), for: .touchUpInside)
     return button
   }()
+  
+  @objc func handleTapped(_ sender: UIButton) {
+    if let youtuber = youtuber, let delegate = delegate {
+      self.delegate?.youtuberTableViewCell(self, subscribeButtonTappedFor: youtuber)
+    }
+  }
   
   override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
     super.init(style: style, reuseIdentifier: reuseIdentifier)
     
     setupUI()
+    subscribeButton.addTarget(self, action: #selector(handleTapped), for: .touchUpInside)
   }
   
   required init?(coder aDecoder: NSCoder) {
