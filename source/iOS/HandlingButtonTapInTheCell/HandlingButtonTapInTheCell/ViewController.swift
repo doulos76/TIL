@@ -40,31 +40,43 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath) as! YoutuberTableViewCell
     cell.youtuberLabel.text = youtubers[indexPath.row]
-    cell.youtuber = youtubers[indexPath.row]
-    cell.delegate = self
+    cell.subscribeButtonAction = { [unowned self] in
+      let youtuber = self.youtubers[indexPath.row]
+      let alert = UIAlertController(title: "Subscribed!", message: "Subscribed to \(youtuber)", preferredStyle: .alert)
+      let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+      alert.addAction(okAction)
+      self.present(alert, animated: true, completion: nil)
+      print("\n================[closer way]================\n")
+    }
     return cell
+    
+    /// Protocol Delegate way
+    //cell.youtuberLabel.text = youtubers[indexPath.row]
+    //cell.youtuber = youtubers[indexPath.row]
+    //cell.delegate = self
+    //return cell
   }
   
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     return 80
   }
   
-  @objc func subscribeTapped(_ sender: UIButton){
-    // use the tag of button as index
-    let youtuber = youtubers[sender.tag]
-    let alert = UIAlertController(title: "Subscribed!", message: "Subscribed to \(youtuber)", preferredStyle: .alert)
-    let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-    alert.addAction(okAction)
-    self.present(alert, animated: true, completion: nil)
-  }
+//  @objc func subscribeTapped(_ sender: UIButton){
+//    // use the tag of button as index
+//    let youtuber = youtubers[sender.tag]
+//    let alert = UIAlertController(title: "Subscribed!", message: "Subscribed to \(youtuber)", preferredStyle: .alert)
+//    let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+//    alert.addAction(okAction)
+//    self.present(alert, animated: true, completion: nil)
+//  }
 }
 
-extension ViewController: YoutuberTableViewCellDelegate {
-  func youtuberTableViewCell(_ youtuberTableViewCell: YoutuberTableViewCell, subscribeButtonTappedFor youtuber: String) {
-    let alert = UIAlertController(title: "Subscribed!", message: "Subscribed to \(youtuber)", preferredStyle: .alert)
-    let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-    alert.addAction(okAction)
-    self.present(alert, animated: true, completion: nil)
-    print("protocol used")
-  }
-}
+//extension ViewController: YoutuberTableViewCellDelegate {
+//  func youtuberTableViewCell(_ youtuberTableViewCell: YoutuberTableViewCell, subscribeButtonTappedFor youtuber: String) {
+//    let alert = UIAlertController(title: "Subscribed!", message: "Subscribed to \(youtuber)", preferredStyle: .alert)
+//    let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+//    alert.addAction(okAction)
+//    self.present(alert, animated: true, completion: nil)
+//    print("protocol used")
+//  }
+//}

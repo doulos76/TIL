@@ -32,6 +32,8 @@ class YoutuberTableViewCell: UITableViewCell {
     return button
   }()
   
+  var subscribeButtonAction: (() -> ())?
+  
   @objc func handleTapped(_ sender: UIButton) {
     if let youtuber = youtuber, let delegate = delegate {
       self.delegate?.youtuberTableViewCell(self, subscribeButtonTappedFor: youtuber)
@@ -42,7 +44,17 @@ class YoutuberTableViewCell: UITableViewCell {
     super.init(style: style, reuseIdentifier: reuseIdentifier)
     
     setupUI()
-    subscribeButton.addTarget(self, action: #selector(handleTapped), for: .touchUpInside)
+//    subscribeButton.addTarget(self, action: #selector(handleTapped), for: .touchUpInside)
+    
+    self.subscribeButton.addTarget(self, action: #selector(subscribeButtonTapped(_:)), for: .touchUpInside)
+  }
+  
+  override func setSelected(_ selected: Bool, animated: Bool) {
+    super.setSelected(selected, animated: animated)
+  }
+  
+  @objc func subscribeButtonTapped(_ sender: UIButton) {
+    subscribeButtonAction?()
   }
   
   required init?(coder aDecoder: NSCoder) {
