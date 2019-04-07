@@ -59,3 +59,7 @@ reset VS revert
 * stage
 * repository
 
+
+![Git](https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwj3kJTUwr3hAhUBa94KHb1CDUYQjRx6BAgBEAU&url=https%3A%2F%2Fwww3.ntu.edu.sg%2Fhome%2Fehchua%2Fprogramming%2Fhowto%2FGit_HowTo.html&psig=AOvVaw0OEUxij-T2PyGu6GNMlZcQ&ust=1554710552861912)
+
+
