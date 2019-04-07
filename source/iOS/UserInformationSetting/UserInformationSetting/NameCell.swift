@@ -14,7 +14,8 @@ protocol NameCellDelegate: class {
 
 class NameCell: BasicCell {
   
-  weak var delegate: NameCellDelegate?
+  //weak var delegate: NameCellDelegate?
+  var
   
   let userNameLabel: UILabel = {
     let label = UILabel()
@@ -31,7 +32,7 @@ class NameCell: BasicCell {
     super.init(style: style, reuseIdentifier: reuseIdentifier)    
     setupUI()
     userNameTouched()
-    self.userNameLabel.addInteraction(<#T##interaction: UIInteraction##UIInteraction#>)
+//    self.userNameLabel.addInteraction(<#T##interaction: UIInteraction##UIInteraction#>)
   }
   
   fileprivate func setupUI() {
