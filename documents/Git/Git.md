@@ -64,3 +64,43 @@ reset VS revert
 ![Git Storage Data Flow](images/Git_StorageDataFlow.png)
 
 
+## fork repository 최신 버전으로 유지하기
+
+1. fork, clone 후 확인
+	* 명령어
+
+	```
+	$ git remote -v
+	```
+
+	* 결과
+
+	```
+	origin https://github.com/user/ooo.git (fetch)
+	origin https://github.com/user/ooo.git (push)
+	```
+
+2. upstream 이란 이름으로 원본 소스코드의 위치를 추가시킴
+
+	* 명령어
+
+	```
+	$ git remote add upstream https://github.com/ooo/ooo.git
+	```
+
+3. 제대로 추가되었는지 확인
+
+	* 명령어
+
+	```
+	$ git remote -v
+	```
+
+	* 결과
+	
+	```
+	origin https://github.com/user/ooo.git (fetch)
+	origin https://github.com/user/ooo.git (push)
+	upstream		https://github.com/ooo/ooo.git (fetch)
+	upstream		https://github.com/ooo/ooo.git (push)
+	```
