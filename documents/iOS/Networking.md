@@ -24,3 +24,17 @@ GCD(Grand Central Dispatch)
 * URLSessionConfiguration을 통해 구성
 * URLSessionTask로 실행
 
+## Networking Guideline
+
+* User High-Level APIs
+* Transfer only as much data as required
+* Use Caches
+* Use Asynchronous APIs
+* Use Hostnames
+* Use HTTPS
+
+## URLSession
+* API Reqeust
+* File Transfer
+* Authentication
+
