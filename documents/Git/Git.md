@@ -104,3 +104,14 @@ reset VS revert
 	upstream		https://github.com/ooo/ooo.git (fetch)
 	upstream		https://github.com/ooo/ooo.git (push)
 	```
+  4. git fetch upstream
+  
+  ```
+  $ git fetch upstream
+ ``` 
+  
+  5. git merge upstream/master
+  
+  ```
+  $ git merge upstream/master
+ ```
